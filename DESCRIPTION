@@ -3,7 +3,7 @@ Type: Package
 Title: Evaluacion de Prima seguros segun base de datos lx
 Version: 1.0.0
 Author: Esteban Gutierrez Perez
-Maintainer: Esteban Gutiérrez Pérez <mayrongutierrez@usantotomas.edu.co>
+Maintainer: Esteban Gutierrez Perez <mayrongutierrez@usantotomas.edu.co>
 Description: Calculo de seguro entero, temporal, entero diferido y dotal. 
     Interpolacion lineal e hiperbolica. calculo de  kPx. Ejemplo base de datos tcm8903 
 License: GPL-2
