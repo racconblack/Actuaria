@@ -1,10 +1,10 @@
-#' Esta función calcula kPx
+#' calcula kPx
 #'
 #' @param k Años de Sobrevivencia segùn tabla TCM-89,03
 #' @param x Edad Inicial segùn tabla TCM-89,03
 #' @param sex Sexo "M" para masculino, "F" para Femenino
 #' @param base Base de datos que contiene lx
-#' @return Función kPx
+#' @return kPx
 #' @examples
 #' library(Actuaria)
 #' x <- tcm8903

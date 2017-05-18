@@ -16,12 +16,13 @@
 #'  Interpolación Lineal
 #'  mensual(SA = 150000000, x = 360,n = 0,m = 0,i = 0.033,sex = "M",interpolar = "lin",base )
 #'
-#'  Interpolacion hipoerbolica
+#'  Interpolacion hiperbolica
 #'  mensual(SA = 150000000, x = 360,n = 0,m = 0,i = 0.033,sex = "M",interpolar = "hip",base )
 #' @export
 
 mensual <- function(SA,x,n,m,i,sex,interpolar = "lin",base){
-
+  xmin <- (min(as.numeric(base[,1]))*12) - 1
+  xmax <- max(as.numeric(base[,1]))*12
   i <- ((1+i)^(1/12))-1
 
   inf <- as.numeric(base[1,1])*12
@@ -52,20 +53,20 @@ base2 <- base2[1:rows,]
 
 if (interpolar == "lin"){
   Aprima <- 0
-  ifelse(n > 0, until <- (m+n-1), until <- (1200-x-1))
+  ifelse(n > 0, until <- (m+n-1), until <- (xmax-x-1))
   for (ik in m:until){
  # ik <- until
     conta <- (1+i)^(-ik-1)
     kpx <- NULL
 
     if(sex == "M"){
-      kpx = base2[(x+ik)-239,"lineal"]/base2[x-239,"lineal"]} else if(sex == "F"){
-        kpx <- base2[(x+ik)-239,"linealy"]/base2[x-239,"linealy"]}
+      kpx = base2[(x+ik)-xmin,"lineal"]/base2[x-xmin,"lineal"]} else if(sex == "F"){
+        kpx <- base2[(x+ik)-xmin,"linealy"]/base2[x-xmin,"linealy"]}
 
     kpx2 <- NULL
     if(sex == "M"){
-      kpx2 = 1- (base2[(x+ik+1)-239,"lineal"]/base2[x+ik-239,"lineal"])} else if(sex == "F"){
-        kpx2 <- 1- (base2[(x+ik+1)-239,"linealy"]/base2[x+ik-239,"linealy"])}
+      kpx2 = 1- (base2[(x+ik+1)-xmin,"lineal"]/base2[x+ik-xmin,"lineal"])} else if(sex == "F"){
+        kpx2 <- 1- (base2[(x+ik+1)-xmin,"linealy"]/base2[x+ik-xmin,"linealy"])}
 
     Aprima <- Aprima + (conta * kpx * kpx2)
   }
@@ -75,19 +76,19 @@ if (interpolar == "lin"){
 } else if (interpolar == "hip"){
 
   Aprima <- 0
-  ifelse(n > 0, until <- (m+n-1), until <- (1200-x-1))
+  ifelse(n > 0, until <- (m+n-1), until <- (xmax-x-1))
   for (ik in m:until){
     conta <- (1+i)^(-ik-1)
     kpx <- NULL
 
     if(sex == "M"){
-      kpx = base2[(x+ik)-239,"hiperbolic"]/base2[x-239,"hiperbolic"]} else if(sex == "F"){
-        kpx <- base2[(x+ik)-239,"hiperbolicy"]/base2[x-239,"hiperbolicy"]}
+      kpx = base2[(x+ik)-xmin,"hiperbolic"]/base2[x-xmin,"hiperbolic"]} else if(sex == "F"){
+        kpx <- base2[(x+ik)-xmin,"hiperbolicy"]/base2[x-xmin,"hiperbolicy"]}
 
     kpx2 <- NULL
     if(sex == "M"){
-      kpx2 = 1- (base2[(x+ik+1)-239,"hiperbolic"]/base2[x+ik-239,"hiperbolic"])} else if(sex == "F"){
-        kpx2 <- 1- (base2[(x+ik+1)-239,"hiperbolicy"]/base2[x+ik-239,"hiperbolicy"])}
+      kpx2 = 1- (base2[(x+ik+1)-xmin,"hiperbolic"]/base2[x+ik-xmin,"hiperbolic"])} else if(sex == "F"){
+        kpx2 <- 1- (base2[(x+ik+1)-xmin,"hiperbolicy"]/base2[x+ik-xmin,"hiperbolicy"])}
 
     Aprima <- Aprima + (conta * kpx * kpx2)
   }

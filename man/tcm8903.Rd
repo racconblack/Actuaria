@@ -4,7 +4,7 @@
 \name{tcm8903}
 \alias{tcm8903}
 \title{Base de Datos tcm-89-03}
-\format{A data frame with 81 rows and 3 variables:
+\format{A data frame with 81 rows and 13 variables:
 \itemize{
   \item edad: Edad
   \item lx: Sobrevivencia Hombre

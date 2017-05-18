@@ -36,6 +36,6 @@ prima de un seguro para meses (interpolacion Lineal o hiperbolica)
  Interpolación Lineal
  mensual(SA = 150000000, x = 360,n = 0,m = 0,i = 0.033,sex = "M",interpolar = "lin",base )
 
- Interpolacion hipoerbolica
+ Interpolacion hiperbolica
  mensual(SA = 150000000, x = 360,n = 0,m = 0,i = 0.033,sex = "M",interpolar = "hip",base )
 }

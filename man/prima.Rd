@@ -37,7 +37,7 @@ prima(100000000,30,0,0,0.025,"M",base)
 #Seguro Anual con temporalidad
 prima(100000000,23,20,0,0.025,"F", base)
 
-#Seguro dotal
+#Seguro  Anual con temporalidad y diferimiento
 prima(100000000,55,15,8,0.03,"M",base)
 
 }
